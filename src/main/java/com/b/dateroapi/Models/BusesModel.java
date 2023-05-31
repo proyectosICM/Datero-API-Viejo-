@@ -28,6 +28,10 @@ public class BusesModel {
     @JoinColumn(name = "emp_id", referencedColumnName = "id_emp", nullable = false)
     private EmpresasModel empresasModel;
 
+    @ManyToOne
+    @JoinColumn(name = "ruta_id", referencedColumnName = "id_ruta", nullable = false)
+    private RutasModel rutasModel;
+
     @JsonIgnore
     @OneToMany(mappedBy = "busesModel")
     private List<RTiempoModel> tiempo;
