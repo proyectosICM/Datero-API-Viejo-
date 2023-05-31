@@ -15,9 +15,8 @@ public class TrabajadoresModel {
     private String nom_tra;
     private String ape_tra;
     private String dni_tra;
-    @ManyToOne
-    @JoinColumn(name = "rol_id", referencedColumnName = "id_rol", nullable = false)
-    private RolesModel rolesModel;
+    private Boolean est_tra;
+
 
     @ManyToOne
     @JoinColumn(name = "empresa_id", referencedColumnName = "id_emp", nullable = false)

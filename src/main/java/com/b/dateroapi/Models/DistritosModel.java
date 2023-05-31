@@ -6,15 +6,16 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "Roles")
-public class RolesModel {
+@Table(name = "Distritos")
+public class DistritosModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
-    private Long id_rol;
-    private String nom_rol;
-    private Boolean est_rol;
+    private Long id_dis;
+    private String nom_dis;
+    private Boolean est_dis;
+
     @JsonIgnore
-    @OneToMany(mappedBy = "rolesModel")
-    private List<UsuariosModel> usuarios;
+    @OneToMany(mappedBy = "distritosModel")
+    private List<ParaderosModel> paraderos;
 }

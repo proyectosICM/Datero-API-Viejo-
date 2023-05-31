@@ -12,10 +12,14 @@ public class EmpresasModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long id_emp;
-    private String nom_emo;
+    private String nom_emp;
     private Boolean est_emp;
 
     @JsonIgnore
     @OneToMany(mappedBy = "empresasModel")
     private List<TrabajadoresModel> trabajadores;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "empresasModel")
+    private List<BusesModel> buses;
 }
