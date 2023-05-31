@@ -36,5 +36,4 @@ public class BusesModel {
     @OneToMany(mappedBy = "busesModel")
     private List<RTiempoModel> tiempo;
 
-
 }

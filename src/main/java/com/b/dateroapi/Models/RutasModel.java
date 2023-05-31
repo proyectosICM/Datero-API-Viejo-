@@ -17,6 +17,7 @@ public class RutasModel {
 
     @JsonIgnore
     @OneToMany(mappedBy = "rutasModel")
+
     private List<RPModel> rp;
 
     @JsonIgnore
