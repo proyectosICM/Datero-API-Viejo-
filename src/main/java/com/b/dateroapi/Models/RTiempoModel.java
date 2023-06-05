@@ -14,6 +14,7 @@ public class RTiempoModel {
     @JoinColumn(name = "bus_id", referencedColumnName = "id_bus", nullable = false)
     private BusesModel busesModel;
 
+    /*
     @ManyToOne
     @JoinColumn(name = "ruta_id", referencedColumnName = "id_ruta", nullable = false)
     private RutasModel rutasModel;
@@ -21,6 +22,8 @@ public class RTiempoModel {
     @ManyToOne
     @JoinColumn(name = "paradero_id", referencedColumnName = "id_par", nullable = false)
     private ParaderosModel paraderosModel;
+
+     */
 
     @ManyToOne
     @JoinColumn(name = "rp_id", referencedColumnName = "id_rp", nullable = false)

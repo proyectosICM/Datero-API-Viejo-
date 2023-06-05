@@ -23,4 +23,47 @@ public class RutasModel {
     @JsonIgnore
     @OneToMany(mappedBy = "rutasModel")
     private List<BusesModel> buses;
+
+    public RutasModel() {
+    }
+
+    public Long getId_ruta() {
+        return id_ruta;
+    }
+
+    public void setId_ruta(Long id_ruta) {
+        this.id_ruta = id_ruta;
+    }
+
+    public String getNom_ruta() {
+        return nom_ruta;
+    }
+
+    public void setNom_ruta(String nom_ruta) {
+        this.nom_ruta = nom_ruta;
+    }
+
+    public Boolean getEst_ruta() {
+        return est_ruta;
+    }
+
+    public void setEst_ruta(Boolean est_ruta) {
+        this.est_ruta = est_ruta;
+    }
+
+    public List<RPModel> getRp() {
+        return rp;
+    }
+
+    public void setRp(List<RPModel> rp) {
+        this.rp = rp;
+    }
+
+    public List<BusesModel> getBuses() {
+        return buses;
+    }
+
+    public void setBuses(List<BusesModel> buses) {
+        this.buses = buses;
+    }
 }

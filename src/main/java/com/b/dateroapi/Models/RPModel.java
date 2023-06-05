@@ -28,5 +28,54 @@ public class RPModel {
     private Integer orden_rp;
     private Boolean est_rp;
 
+    public RPModel() {
+    }
 
+    public Long getId_rp() {
+        return id_rp;
+    }
+
+    public void setId_rp(Long id_rp) {
+        this.id_rp = id_rp;
+    }
+
+    public RutasModel getRutasModel() {
+        return rutasModel;
+    }
+
+    public void setRutasModel(RutasModel rutasModel) {
+        this.rutasModel = rutasModel;
+    }
+
+    public ParaderosModel getParaderosModel() {
+        return paraderosModel;
+    }
+
+    public void setParaderosModel(ParaderosModel paraderosModel) {
+        this.paraderosModel = paraderosModel;
+    }
+
+    public List<BusesModel> getBuses() {
+        return buses;
+    }
+
+    public void setBuses(List<BusesModel> buses) {
+        this.buses = buses;
+    }
+
+    public Integer getOrden_rp() {
+        return orden_rp;
+    }
+
+    public void setOrden_rp(Integer orden_rp) {
+        this.orden_rp = orden_rp;
+    }
+
+    public Boolean getEst_rp() {
+        return est_rp;
+    }
+
+    public void setEst_rp(Boolean est_rp) {
+        this.est_rp = est_rp;
+    }
 }

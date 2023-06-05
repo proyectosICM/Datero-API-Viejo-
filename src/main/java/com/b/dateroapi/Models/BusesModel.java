@@ -36,4 +36,78 @@ public class BusesModel {
     @OneToMany(mappedBy = "busesModel")
     private List<RTiempoModel> tiempo;
 
+    public BusesModel() {
+    }
+
+    public Long getId_bus() {
+        return id_bus;
+    }
+
+    public void setId_bus(Long id_bus) {
+        this.id_bus = id_bus;
+    }
+
+    public String getMod_bus() {
+        return mod_bus;
+    }
+
+    public void setMod_bus(String mod_bus) {
+        this.mod_bus = mod_bus;
+    }
+
+    public String getPlaca_bus() {
+        return placa_bus;
+    }
+
+    public void setPlaca_bus(String placa_bus) {
+        this.placa_bus = placa_bus;
+    }
+
+    public Boolean getEst_bus() {
+        return est_bus;
+    }
+
+    public void setEst_bus(Boolean est_bus) {
+        this.est_bus = est_bus;
+    }
+
+    public TrabajadoresModel getTrabajadoresModel() {
+        return trabajadoresModel;
+    }
+
+    public void setTrabajadoresModel(TrabajadoresModel trabajadoresModel) {
+        this.trabajadoresModel = trabajadoresModel;
+    }
+
+    public RPModel getRpModel() {
+        return rpModel;
+    }
+
+    public void setRpModel(RPModel rpModel) {
+        this.rpModel = rpModel;
+    }
+
+    public EmpresasModel getEmpresasModel() {
+        return empresasModel;
+    }
+
+    public void setEmpresasModel(EmpresasModel empresasModel) {
+        this.empresasModel = empresasModel;
+    }
+
+    public RutasModel getRutasModel() {
+        return rutasModel;
+    }
+
+    public void setRutasModel(RutasModel rutasModel) {
+        this.rutasModel = rutasModel;
+    }
+
+    public List<RTiempoModel> getTiempo() {
+        return tiempo;
+    }
+
+    public void setTiempo(List<RTiempoModel> tiempo) {
+        this.tiempo = tiempo;
+    }
 }
