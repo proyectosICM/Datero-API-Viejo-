@@ -26,18 +26,19 @@ public class BusesService {
 
         for (Object[] resultado : resultados){
             BusesModel busesm = new BusesModel();
+            busesm.setId_bus((Long) resultado [0]);
             busesm.setRutasModel((new RutasModel()));
-            busesm.getRutasModel().setNom_ruta((String) resultado[0]);
-            busesm.setPlaca_bus((String) resultado[1]);
+            busesm.getRutasModel().setNom_ruta((String) resultado[1]);
+            busesm.setPlaca_bus((String) resultado[2]);
+            busesm.setMod_bus((String) resultado[3]);
             busesm.setTrabajadoresModel((new TrabajadoresModel()));
-            busesm.getTrabajadoresModel().setNom_tra((String) resultado[2]);
-            busesm.getTrabajadoresModel().getApe_tra(((String) resultado[3]);
+            busesm.getTrabajadoresModel().setNom_tra((String) resultado[4]);
+            busesm.getTrabajadoresModel().setApe_tra((String) resultado[5]);
             busesm.setEmpresasModel((new EmpresasModel()));
-            busesm.getEmpresasModel().setNom_emp((String) resultado[4]);
+            busesm.getEmpresasModel().setNom_emp((String) resultado[6]);
 
             busesList.add(busesm);
         }
         return busesList;
     }
-
 }

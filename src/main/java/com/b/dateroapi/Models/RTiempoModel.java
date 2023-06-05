@@ -14,18 +14,42 @@ public class RTiempoModel {
     @JoinColumn(name = "bus_id", referencedColumnName = "id_bus", nullable = false)
     private BusesModel busesModel;
 
-    /*
-    @ManyToOne
-    @JoinColumn(name = "ruta_id", referencedColumnName = "id_ruta", nullable = false)
-    private RutasModel rutasModel;
-
-    @ManyToOne
-    @JoinColumn(name = "paradero_id", referencedColumnName = "id_par", nullable = false)
-    private ParaderosModel paraderosModel;
-
-     */
-
     @ManyToOne
     @JoinColumn(name = "rp_id", referencedColumnName = "id_rp", nullable = false)
     private RPModel rpModel;
+
+    public RTiempoModel() {
+    }
+
+    public Long getId_rt() {
+        return id_rt;
+    }
+
+    public void setId_rt(Long id_rt) {
+        this.id_rt = id_rt;
+    }
+
+    public Integer getTiempo() {
+        return tiempo;
+    }
+
+    public void setTiempo(Integer tiempo) {
+        this.tiempo = tiempo;
+    }
+
+    public BusesModel getBusesModel() {
+        return busesModel;
+    }
+
+    public void setBusesModel(BusesModel busesModel) {
+        this.busesModel = busesModel;
+    }
+
+    public RPModel getRpModel() {
+        return rpModel;
+    }
+
+    public void setRpModel(RPModel rpModel) {
+        this.rpModel = rpModel;
+    }
 }

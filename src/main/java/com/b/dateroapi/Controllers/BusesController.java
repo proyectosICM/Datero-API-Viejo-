@@ -20,4 +20,9 @@ public class BusesController {
     public List<BusesModel> GetAll(){
         return busesService.ListarBuses();
     }
+
+    @GetMapping("/vista")
+    public List<BusesModel> getListBusesD(){
+        return busesService.ListarBD();
+    }
 }
