@@ -22,6 +22,22 @@ public class EmpresasControllers {
         return empresasService.ListarEmpresas();
     }
 
+    @GetMapping("/habilitadas")
+    public List<EmpresasModel> getListsH(){return empresasService.ListarEmpHab();}
+
+    @GetMapping("/deshabilitadas")
+    public List<EmpresasModel> getListsD(){return empresasService.ListarEmpDeshab();}
+
+    @GetMapping("/d/{est}")
+    public List<EmpresasModel> getDetallesValores(@PathVariable("est") boolean est){
+        return empresasService.ListarEmpEst(est);
+    }
+
+    @GetMapping("/v/{est}")
+    public List<Object[]> getDetallesValores2(@PathVariable("est") boolean est){
+        return empresasService.getDetallesValores(est);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<EmpresasModel> GetEID(@PathVariable Long id){
         Optional<EmpresasModel> empresa = empresasService.ListarEmpresaId(id);

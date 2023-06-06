@@ -5,6 +5,7 @@ import com.b.dateroapi.Repositories.EmpresasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,6 +20,54 @@ public class EmpresasService {
 
     public Optional<EmpresasModel> ListarEmpresaId(Long id) {
         return empresasRepository.findById(id);
+    }
+
+
+    public List<EmpresasModel> ListarEmpHab(){
+        List<Object[]> resultados = empresasRepository.EmpHabilitadas();
+        List<EmpresasModel> empresasHList = new ArrayList<>();
+
+        for (Object[] resultado : resultados ){
+            EmpresasModel empresasmh = new EmpresasModel();
+            empresasmh.setId_emp((Long) resultado[0]);
+            empresasmh.setEst_emp((Boolean) resultado[1]);
+            empresasmh.setNom_emp((String) resultado[2]);
+            empresasHList.add(empresasmh);
+        }
+        return empresasHList;
+    }
+
+    public List<EmpresasModel> ListarEmpDeshab(){
+        List<Object[]> resultados = empresasRepository.EmpDeHabilitadas();
+        List<EmpresasModel> empresasDList = new ArrayList<>();
+
+        for (Object[] resultado : resultados){
+            EmpresasModel empresasmd = new EmpresasModel();
+            empresasmd.setId_emp((Long) resultado[0]);
+            empresasmd.setEst_emp((Boolean) resultado[1]);
+            empresasmd.setNom_emp((String) resultado[2]);
+            empresasDList.add(empresasmd);
+        }
+        return empresasDList;
+    }
+
+
+    public List<EmpresasModel> ListarEmpEst(boolean est){
+        List<Object[]> resultados = empresasRepository.getEmpest(est);
+        List<EmpresasModel> empresasDList = new ArrayList<>();
+
+        for (Object[] resultado : resultados){
+            EmpresasModel empresasmd = new EmpresasModel();
+            empresasmd.setId_emp((Long) resultado[0]);
+            empresasmd.setEst_emp((Boolean) resultado[1]);
+            empresasmd.setNom_emp((String) resultado[2]);
+            empresasDList.add(empresasmd);
+        }
+        return empresasDList;
+    }
+
+    public List<Object[]> getDetallesValores(boolean est) {
+        return empresasRepository.getEmpest(est);
     }
 
     public EmpresasModel CrearEmpresa(EmpresasModel empresasModel){
