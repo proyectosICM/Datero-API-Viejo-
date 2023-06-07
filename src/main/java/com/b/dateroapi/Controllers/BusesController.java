@@ -27,13 +27,18 @@ public class BusesController {
         return busesService.ListarBD();
     }
 
-    @GetMapping("/busxemp/{emp}")
+    @GetMapping("/busxempT/{emp}")
     public List<BusesModel> BusesxEmp(@PathVariable("emp") Long emp){
-        return busesService.ListarBusesxE(emp);
+        return busesService.ListarBusesxET(emp);
     }
 
-    @GetMapping("/busxemp2/{emp}")
-    public List<BusesModel> BusesxEmp2(@PathVariable("emp") Long emp){
-        return busesService.ListarBusesxE2(emp);
+    @GetMapping("/busxempH/{emp}")
+    public List<BusesModel> BusesxEmpH(@PathVariable("emp") Long emp){
+        return busesService.ListarBusesxEH(emp);
+    }
+
+    @GetMapping("/busxempD/{emp}")
+    public List<BusesModel> BusesxEmpD(@PathVariable("emp") Long emp){
+        return busesService.ListarBusesxED(emp);
     }
 }

@@ -13,9 +13,12 @@ public interface BusesRepository extends JpaRepository<BusesModel, Long> {
     @Query(value = "SELECT * FROM LISTBUSESD", nativeQuery = true)
     List<Object[]>ListBusesD();
 
-    @Query(value = "CALL BUSESXEMP(:emp)", nativeQuery = true)
+    @Query(value = "CALL BUSESXEMPT(:emp)", nativeQuery = true)
     List<Object[]>ListBusesxEmp(@Param("emp") Long emp);
 
-    @Query(value = "CALL BUSESXEMP2(:emp)", nativeQuery = true)
-    List<Object[]>ListBusesxEmp2(@Param("emp") Long emp);
+    @Query(value = "CALL BUSESXEMPH(:emp)", nativeQuery = true)
+    List<Object[]>ListBusesxEmpH(@Param("emp") Long emp);
+
+    @Query(value = "CALL BUSESXEMPD(:emp)", nativeQuery = true)
+    List<Object[]>ListBusesxEmpD(@Param("emp") Long emp);
 }

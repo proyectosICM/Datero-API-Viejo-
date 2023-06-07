@@ -5,6 +5,7 @@ import com.b.dateroapi.Repositories.DistritosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,5 +40,19 @@ public class DistritosService {
 
     public void EliminarDistrito(Long id){
         distritosRepository.deleteById(id);
+    }
+
+    public List<DistritosModel> ListarDisH(Boolean est){
+        List<Object[]> resultados = distritosRepository.ListDish(est);
+        List<DistritosModel> distritoList = new ArrayList<>();
+
+        for (Object[] resultado:resultados){
+            DistritosModel distritoh = new DistritosModel();
+            distritoh.setId_dis((Long) resultado[0]);
+            distritoh.setEst_dis((Boolean) resultado[1]);
+            distritoh.setNom_dis((String) resultado[2]);
+            distritoList.add(distritoh);
+        }
+        return distritoList;
     }
 }

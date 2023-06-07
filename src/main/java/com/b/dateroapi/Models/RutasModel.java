@@ -14,10 +14,12 @@ public class RutasModel {
     private Long id_ruta;
     private String nom_ruta;
     private Boolean est_ruta;
+    @ManyToOne
+    @JoinColumn(name = "emp_id", referencedColumnName = "id_emp", nullable = false)
+    private EmpresasModel empresasModel;
 
     @JsonIgnore
     @OneToMany(mappedBy = "rutasModel")
-
     private List<RPModel> rp;
 
     @JsonIgnore
@@ -49,6 +51,14 @@ public class RutasModel {
 
     public void setEst_ruta(Boolean est_ruta) {
         this.est_ruta = est_ruta;
+    }
+
+    public EmpresasModel getEmpresasModel() {
+        return empresasModel;
+    }
+
+    public void setEmpresasModel(EmpresasModel empresasModel) {
+        this.empresasModel = empresasModel;
     }
 
     public List<RPModel> getRp() {
