@@ -36,14 +36,14 @@ public class TrabajadoresController {
         return trabajadoresService.ListarTrabjadorxEmpT(emp);
     }
 
-    @GetMapping("/trabajadoresxEmpH/{emp}")
-    public List<TrabajadoresModel> BusesxEmpH(@PathVariable("emp") Long emp){
-        return trabajadoresService.ListarTrabjadorxEmpH(emp);
+    @GetMapping("/trabajadoresxEmpH/{emp}/{est}")
+    public List<TrabajadoresModel> BusesxEmpH(@PathVariable("emp") Long emp, @PathVariable("est") Boolean est){
+        return trabajadoresService.ListarTrabjadorxEmpH(emp,est);
     }
 
-    @GetMapping("/trabajadoresxEmpD/{emp}")
-    public List<TrabajadoresModel> BusesxEmpD(@PathVariable("emp") Long emp){
-        return trabajadoresService.ListarTrabjadorxEmpD(emp);
+    @GetMapping("/trabajadoresxEmpR/{emp}/{est}/{rol}")
+    public List<TrabajadoresModel> BusesxEmpD(@PathVariable("emp") Long emp, @PathVariable("est") Boolean est, @PathVariable("rol") Integer rol ){
+        return trabajadoresService.ListarTrabjadorxEmpR(emp, est, rol);
     }
 
     @PostMapping

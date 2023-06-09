@@ -4,12 +4,13 @@ import com.b.dateroapi.Models.BusesModel;
 import com.b.dateroapi.Services.BusesService;
 import jakarta.persistence.Entity;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
+import javax.swing.text.html.Option;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/buses")
@@ -20,6 +21,36 @@ public class BusesController {
     @GetMapping
     public List<BusesModel> GetAll(){
         return busesService.ListarBuses();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<BusesModel> GetAllId(@PathVariable Long id){
+        Optional<BusesModel> buses = busesService.ListarBusId(id);
+        if (buses.isPresent()){
+            return new ResponseEntity<>(buses.get(), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @PostMapping
+    public ResponseEntity<BusesModel> CrearB(@RequestBody BusesModel busesModel){
+        BusesModel cbus = busesService.CrearBus(busesModel);
+        return new ResponseEntity<>(cbus,HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<BusesModel> EditarB(@RequestBody BusesModel busesModel, @PathVariable Long id){
+        BusesModel ebus = busesService.EditarBus(busesModel, id);
+        if (ebus!=null){
+            return new ResponseEntity<>(ebus, HttpStatus.OK);
+        }
+        return null;
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<BusesModel> EliminarB(@PathVariable Long id){
+        busesService.EliminarBus(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @GetMapping("/vista")

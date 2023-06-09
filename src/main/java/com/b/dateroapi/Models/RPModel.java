@@ -21,9 +21,6 @@ public class RPModel {
     @JoinColumn(name = "par_id", referencedColumnName = "id_par", nullable = false)
     private ParaderosModel paraderosModel;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "rpModel")
-    private List<BusesModel> buses;
 
     private Integer orden_rp;
     private Boolean est_rp;
@@ -55,13 +52,6 @@ public class RPModel {
         this.paraderosModel = paraderosModel;
     }
 
-    public List<BusesModel> getBuses() {
-        return buses;
-    }
-
-    public void setBuses(List<BusesModel> buses) {
-        this.buses = buses;
-    }
 
     public Integer getOrden_rp() {
         return orden_rp;

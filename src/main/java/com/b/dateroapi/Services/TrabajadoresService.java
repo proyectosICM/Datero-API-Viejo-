@@ -1,9 +1,8 @@
 package com.b.dateroapi.Services;
 
-import com.b.dateroapi.Models.BusesModel;
 import com.b.dateroapi.Models.EmpresasModel;
+import com.b.dateroapi.Models.RolesModel;
 import com.b.dateroapi.Models.TrabajadoresModel;
-import com.b.dateroapi.Models.UsuariosModel;
 import com.b.dateroapi.Repositories.TrabajadoresRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -57,20 +56,23 @@ public class TrabajadoresService {
             trabajadoresxe.setApe_tra((String) resultado[2]);
             trabajadoresxe.setDni_tra((String) resultado[3]);
             EmpresasModel empresasxe = new EmpresasModel();
-            empresasxe.setNom_emp((String) resultado[4]);
+            empresasxe.setId_emp((Long) resultado[4]);
+            empresasxe.setNom_emp((String) resultado[5]);
             trabajadoresxe.setEmpresasModel(empresasxe);
-            UsuariosModel usuariosxe = new UsuariosModel();
-            usuariosxe.setUser_usu((String) resultado[5]);
-            usuariosxe.setPass_usu((String) resultado[6]);
-            usuariosxe.setEst_usu((Boolean) resultado[7]);
-            trabajadoresxe.setUsuariosModel(usuariosxe);
+            trabajadoresxe.setUser_tra((String) resultado[6]);
+            trabajadoresxe.setPass_tra((String) resultado[7]);
+            RolesModel rolesxe  = new RolesModel();
+            rolesxe.setId_rol((Long) resultado[8]);
+            rolesxe.setNom_rol((String) resultado[9]);
+            trabajadoresxe.setRolesModel(rolesxe);
+            trabajadoresxe.setEst_tra((Boolean) resultado[10]);
             trabajadorList.add(trabajadoresxe);
         }
         return trabajadorList;
     }
 
-    public List<TrabajadoresModel> ListarTrabjadorxEmpH(Long emp){
-        List<Object[]> resultados = trabajadoresRepository.ListTrabjadorxEmpH(emp);
+    public List<TrabajadoresModel> ListarTrabjadorxEmpH(Long emp, Boolean est){
+        List<Object[]> resultados = trabajadoresRepository.ListTrabjadorxEmpH(emp, est);
         List<TrabajadoresModel> trabajadorList = new ArrayList<>();
 
         for (Object[] resultado : resultados){
@@ -80,20 +82,23 @@ public class TrabajadoresService {
             trabajadoresxe.setApe_tra((String) resultado[2]);
             trabajadoresxe.setDni_tra((String) resultado[3]);
             EmpresasModel empresasxe = new EmpresasModel();
-            empresasxe.setNom_emp((String) resultado[4]);
+            empresasxe.setId_emp((Long) resultado[4]);
+            empresasxe.setNom_emp((String) resultado[5]);
             trabajadoresxe.setEmpresasModel(empresasxe);
-            UsuariosModel usuariosxe = new UsuariosModel();
-            usuariosxe.setUser_usu((String) resultado[5]);
-            usuariosxe.setPass_usu((String) resultado[6]);
-            usuariosxe.setEst_usu((Boolean) resultado[7]);
-            trabajadoresxe.setUsuariosModel(usuariosxe);
+            trabajadoresxe.setUser_tra((String) resultado[6]);
+            trabajadoresxe.setPass_tra((String) resultado[7]);
+            RolesModel rolesxe  = new RolesModel();
+            rolesxe.setId_rol((Long) resultado[8]);
+            rolesxe.setNom_rol((String) resultado[9]);
+            trabajadoresxe.setRolesModel(rolesxe);
+            trabajadoresxe.setEst_tra((Boolean) resultado[10]);
             trabajadorList.add(trabajadoresxe);
         }
         return trabajadorList;
     }
 
-    public List<TrabajadoresModel> ListarTrabjadorxEmpD(Long emp){
-        List<Object[]> resultados = trabajadoresRepository.ListTrabjadorxEmpD(emp);
+    public List<TrabajadoresModel> ListarTrabjadorxEmpR(Long emp, Boolean est, Integer rol){
+        List<Object[]> resultados = trabajadoresRepository.ListTrabjadorxEmpR(emp, est, rol);
         List<TrabajadoresModel> trabajadorList = new ArrayList<>();
 
         for (Object[] resultado : resultados){
@@ -103,13 +108,16 @@ public class TrabajadoresService {
             trabajadoresxe.setApe_tra((String) resultado[2]);
             trabajadoresxe.setDni_tra((String) resultado[3]);
             EmpresasModel empresasxe = new EmpresasModel();
-            empresasxe.setNom_emp((String) resultado[4]);
+            empresasxe.setId_emp((Long) resultado[4]);
+            empresasxe.setNom_emp((String) resultado[5]);
             trabajadoresxe.setEmpresasModel(empresasxe);
-            UsuariosModel usuariosxe = new UsuariosModel();
-            usuariosxe.setUser_usu((String) resultado[5]);
-            usuariosxe.setPass_usu((String) resultado[6]);
-            usuariosxe.setEst_usu((Boolean) resultado[7]);
-            trabajadoresxe.setUsuariosModel(usuariosxe);
+            trabajadoresxe.setUser_tra((String) resultado[6]);
+            trabajadoresxe.setPass_tra((String) resultado[7]);
+            RolesModel rolesxe  = new RolesModel();
+            rolesxe.setId_rol((Long) resultado[8]);
+            rolesxe.setNom_rol((String) resultado[9]);
+            trabajadoresxe.setRolesModel(rolesxe);
+            trabajadoresxe.setEst_tra((Boolean) resultado[10]);
             trabajadorList.add(trabajadoresxe);
         }
         return trabajadorList;

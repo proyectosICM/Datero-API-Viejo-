@@ -17,18 +17,17 @@ public class TrabajadoresModel {
     private String dni_tra;
     private Boolean est_tra;
 
+    private String user_tra;
+    private String pass_tra;
+
+    @ManyToOne
+    @JoinColumn(name = "rol_id", referencedColumnName = "id_rol", nullable = false)
+    private RolesModel rolesModel;
 
     @ManyToOne
     @JoinColumn(name = "empresa_id", referencedColumnName = "id_emp", nullable = false)
     private  EmpresasModel empresasModel;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "trabajadoresModel")
-    private List<BusesModel> buses;
-
-    @OneToOne
-    @JoinColumn(name="usuario_id", referencedColumnName = "id_usu", nullable = false)
-    private UsuariosModel usuariosModel;
 
     public TrabajadoresModel() {
     }
@@ -73,27 +72,35 @@ public class TrabajadoresModel {
         this.est_tra = est_tra;
     }
 
+    public String getUser_tra() {
+        return user_tra;
+    }
+
+    public void setUser_tra(String user_tra) {
+        this.user_tra = user_tra;
+    }
+
+    public String getPass_tra() {
+        return pass_tra;
+    }
+
+    public void setPass_tra(String pass_tra) {
+        this.pass_tra = pass_tra;
+    }
+
+    public RolesModel getRolesModel() {
+        return rolesModel;
+    }
+
+    public void setRolesModel(RolesModel rolesModel) {
+        this.rolesModel = rolesModel;
+    }
+
     public EmpresasModel getEmpresasModel() {
         return empresasModel;
     }
 
     public void setEmpresasModel(EmpresasModel empresasModel) {
         this.empresasModel = empresasModel;
-    }
-
-    public List<BusesModel> getBuses() {
-        return buses;
-    }
-
-    public void setBuses(List<BusesModel> buses) {
-        this.buses = buses;
-    }
-
-    public UsuariosModel getUsuariosModel() {
-        return usuariosModel;
-    }
-
-    public void setUsuariosModel(UsuariosModel usuariosModel) {
-        this.usuariosModel = usuariosModel;
     }
 }

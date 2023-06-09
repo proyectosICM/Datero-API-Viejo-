@@ -14,9 +14,6 @@ public class RolesModel {
     private Long id_rol;
     private String nom_rol;
     private Boolean est_rol;
-    @JsonIgnore
-    @OneToMany(mappedBy = "rolesModel")
-    private List<UsuariosModel> usuarios;
 
     public RolesModel() {
     }
@@ -45,11 +42,4 @@ public class RolesModel {
         this.est_rol = est_rol;
     }
 
-    public List<UsuariosModel> getUsuarios() {
-        return usuarios;
-    }
-
-    public void setUsuarios(List<UsuariosModel> usuarios) {
-        this.usuarios = usuarios;
-    }
 }

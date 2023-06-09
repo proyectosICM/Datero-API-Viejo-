@@ -21,10 +21,6 @@ public class BusesModel {
     private TrabajadoresModel trabajadoresModel;
 
     @ManyToOne
-    @JoinColumn(name = "rp_id", referencedColumnName = "id_rp", nullable = false)
-    private RPModel rpModel;
-
-    @ManyToOne
     @JoinColumn(name = "emp_id", referencedColumnName = "id_emp", nullable = false)
     private EmpresasModel empresasModel;
 
@@ -32,9 +28,6 @@ public class BusesModel {
     @JoinColumn(name = "ruta_id", referencedColumnName = "id_ruta", nullable = false)
     private RutasModel rutasModel;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "busesModel")
-    private List<RTiempoModel> tiempo;
 
     public BusesModel() {
     }
@@ -79,14 +72,6 @@ public class BusesModel {
         this.trabajadoresModel = trabajadoresModel;
     }
 
-    public RPModel getRpModel() {
-        return rpModel;
-    }
-
-    public void setRpModel(RPModel rpModel) {
-        this.rpModel = rpModel;
-    }
-
     public EmpresasModel getEmpresasModel() {
         return empresasModel;
     }
@@ -101,13 +86,5 @@ public class BusesModel {
 
     public void setRutasModel(RutasModel rutasModel) {
         this.rutasModel = rutasModel;
-    }
-
-    public List<RTiempoModel> getTiempo() {
-        return tiempo;
-    }
-
-    public void setTiempo(List<RTiempoModel> tiempo) {
-        this.tiempo = tiempo;
     }
 }

@@ -1,7 +1,6 @@
 package com.b.dateroapi.Controllers;
 
 import com.b.dateroapi.Models.RutasModel;
-import com.b.dateroapi.Models.TrabajadoresModel;
 import com.b.dateroapi.Services.RutasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,7 +17,7 @@ public class RutasController {
     RutasService rutasService;
 
     @GetMapping
-    public List<RutasModel> GetAllR(){
+    public List<RutasModel> GetAll(){
         return rutasService.ListarRutas();
     }
 
@@ -36,7 +35,7 @@ public class RutasController {
         RutasModel crutas = rutasService.CrearRuta(rutasModel);
         return new ResponseEntity<>(crutas, HttpStatus.CREATED);
     }
-    @PutMapping
+    @PutMapping("/{id}")
     public ResponseEntity<RutasModel> EditarR(@RequestBody RutasModel rutasModel, @PathVariable Long id){
         RutasModel eruta = rutasService.EditarRuta(rutasModel, id);
         if (eruta!=null){

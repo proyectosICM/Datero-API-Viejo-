@@ -18,7 +18,6 @@ public class RutasService {
     public List<RutasModel> ListarRutas(){
         return rutasRepository.findAll();
     }
-
     public Optional<RutasModel> ListarRutaId(Long id){
         return rutasRepository.findById(id);
     }
