@@ -1,5 +1,6 @@
 package com.b.dateroapi.Controllers;
 
+import com.b.dateroapi.Models.DistritosModel;
 import com.b.dateroapi.Models.RolesModel;
 import com.b.dateroapi.Services.RolesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,5 +51,10 @@ public class RolesController {
     public ResponseEntity<Void> eliminarRol(@PathVariable("id") Long id) {
         rolesService.EliminarRoles(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping("/rolH/{est}")
+    public List<RolesModel> ListRH(@PathVariable("est") Boolean est){
+        return rolesService.ListarRolesH(est);
     }
 }

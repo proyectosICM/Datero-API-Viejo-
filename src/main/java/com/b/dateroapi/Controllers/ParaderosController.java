@@ -55,4 +55,9 @@ public class ParaderosController {
         paraderosService.EliminarParadero(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @GetMapping("/parH/{est}")
+    public List<ParaderosModel> ListParH(@PathVariable("est") Boolean est){
+        return paraderosService.ListarParH(est);
+    }
 }
