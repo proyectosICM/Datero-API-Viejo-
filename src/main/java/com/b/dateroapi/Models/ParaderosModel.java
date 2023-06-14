@@ -3,6 +3,7 @@ package com.b.dateroapi.Models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -13,6 +14,10 @@ public class ParaderosModel {
     @Column(unique = true, nullable = false)
     private Long id_par;
     private String nom_par;
+    @Column(precision = 20, scale = 15)
+    private BigDecimal longitud;
+    @Column(precision = 20, scale = 15)
+    private BigDecimal  latitud;
     private Boolean est_par;
     @JsonIgnore
     @OneToMany(mappedBy = "paraderosModel")
@@ -59,6 +64,22 @@ public class ParaderosModel {
 
     public DistritosModel getDistritosModel() {
         return distritosModel;
+    }
+
+    public BigDecimal getLongitud() {
+        return longitud;
+    }
+
+    public void setLongitud(BigDecimal longitud) {
+        this.longitud = longitud;
+    }
+
+    public BigDecimal getLatitud() {
+        return latitud;
+    }
+
+    public void setLatitud(BigDecimal latitud) {
+        this.latitud = latitud;
     }
 
     public void setDistritosModel(DistritosModel distritosModel) {

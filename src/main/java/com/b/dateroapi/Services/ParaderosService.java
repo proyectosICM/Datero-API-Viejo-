@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -37,6 +38,8 @@ public class ParaderosService {
             paraderos.setNom_par(paraderosModel.getNom_par());
             paraderos.setEst_par(paraderosModel.getEst_par());
             paraderos.setDistritosModel(paraderosModel.getDistritosModel());
+            paraderos.setLatitud(paraderosModel.getLatitud());
+            paraderos.setLongitud(paraderosModel.getLongitud());
             return paraderosRepository.save(paraderos);
         } else {
             return null;
@@ -58,8 +61,10 @@ public class ParaderosService {
             DistritosModel distitoh = new DistritosModel();
             distitoh.setId_dis((Long) resultado[2]);
             distitoh.setNom_dis((String) resultado[3]);
-            paraderoh.setEst_par((Boolean) resultado[4]);
             paraderoh.setDistritosModel(distitoh);
+            paraderoh.setLongitud((BigDecimal) resultado[4]);
+            paraderoh.setLatitud((BigDecimal) resultado[5]);
+            paraderoh.setEst_par((Boolean) resultado[6]);
             paraderosList.add(paraderoh);
         }
         return paraderosList;
