@@ -3,6 +3,7 @@ package com.b.dateroapi.Models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -14,6 +15,10 @@ public class BusesModel {
     private Long id_bus;
     private String mod_bus;
     private String placa_bus;
+    @Column(precision = 20, scale = 15)
+    private BigDecimal longitud;
+    @Column(precision = 20, scale = 15)
+    private BigDecimal  latitud;
     private Boolean est_bus;
 
     @ManyToOne
@@ -74,6 +79,22 @@ public class BusesModel {
 
     public EmpresasModel getEmpresasModel() {
         return empresasModel;
+    }
+
+    public BigDecimal getLongitud() {
+        return longitud;
+    }
+
+    public void setLongitud(BigDecimal longitud) {
+        this.longitud = longitud;
+    }
+
+    public BigDecimal getLatitud() {
+        return latitud;
+    }
+
+    public void setLatitud(BigDecimal latitud) {
+        this.latitud = latitud;
     }
 
     public void setEmpresasModel(EmpresasModel empresasModel) {

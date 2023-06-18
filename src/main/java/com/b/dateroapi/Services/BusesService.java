@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.ObjectError;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 
@@ -55,14 +56,17 @@ public class BusesService {
             BusesModel busesm = new BusesModel();
             busesm.setId_bus((Long) resultado [0]);
             busesm.setRutasModel((new RutasModel()));
-            busesm.getRutasModel().setNom_ruta((String) resultado[1]);
-            busesm.setPlaca_bus((String) resultado[2]);
-            busesm.setMod_bus((String) resultado[3]);
+            busesm.getRutasModel().setId_ruta((Long) resultado[1]);
+            busesm.getRutasModel().setNom_ruta((String) resultado[2]);
+            busesm.setPlaca_bus((String) resultado[3]);
+            busesm.setMod_bus((String) resultado[4]);
             busesm.setTrabajadoresModel((new TrabajadoresModel()));
-            busesm.getTrabajadoresModel().setNom_tra((String) resultado[4]);
-            busesm.getTrabajadoresModel().setApe_tra((String) resultado[5]);
+            busesm.getTrabajadoresModel().setNom_tra((String) resultado[5]);
+            busesm.getTrabajadoresModel().setApe_tra((String) resultado[6]);
             busesm.setEmpresasModel((new EmpresasModel()));
-            busesm.getEmpresasModel().setNom_emp((String) resultado[6]);
+            busesm.getEmpresasModel().setNom_emp((String) resultado[7]);
+            busesm.setLatitud((BigDecimal) resultado[8]);
+            busesm.setLongitud((BigDecimal) resultado[9]);
 
             busesList.add(busesm);
         }
