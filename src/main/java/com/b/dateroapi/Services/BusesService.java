@@ -35,6 +35,8 @@ public class BusesService {
             BusesModel bus = existing.get();
             bus.setMod_bus(busesModel.getMod_bus());
             bus.setPlaca_bus(busesModel.getPlaca_bus());
+            bus.setLongitud(busesModel.getLongitud());
+            bus.setLatitud(busesModel.getLatitud());
             bus.setEst_bus(busesModel.getEst_bus());
             bus.setTrabajadoresModel(busesModel.getTrabajadoresModel());
             bus.setEmpresasModel(busesModel.getEmpresasModel());
