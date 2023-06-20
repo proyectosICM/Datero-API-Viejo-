@@ -1,7 +1,6 @@
 package com.b.dateroapi.Controllers;
 
-import com.b.dateroapi.Models.DistritosModel;
-import com.b.dateroapi.Models.RolesModel;
+import com.b.dateroapi.Models.RolesModel2;
 import com.b.dateroapi.Services.RolesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,14 +17,14 @@ public class RolesController {
     RolesService rolesService;
 
     @GetMapping
-    public ResponseEntity<List<RolesModel>> listarRoles() {
-        List<RolesModel> roles = rolesService.ListarRoles();
+    public ResponseEntity<List<RolesModel2>> listarRoles() {
+        List<RolesModel2> roles = rolesService.ListarRoles();
         return new ResponseEntity<>(roles, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<RolesModel> listarRolPorId(@PathVariable("id") Long id) {
-        Optional<RolesModel> rol = rolesService.ListarRolId(id);
+    public ResponseEntity<RolesModel2> listarRolPorId(@PathVariable("id") Long id) {
+        Optional<RolesModel2> rol = rolesService.ListarRolId(id);
         if (rol.isPresent()) {
             return new ResponseEntity<>(rol.get(), HttpStatus.OK);
         }
@@ -33,14 +32,14 @@ public class RolesController {
     }
 
     @PostMapping
-    public ResponseEntity<RolesModel> crearRol(@RequestBody RolesModel rolesModel) {
-        RolesModel nuevoRol = rolesService.CrearRoles(rolesModel);
+    public ResponseEntity<RolesModel2> crearRol(@RequestBody RolesModel2 rolesModel) {
+        RolesModel2 nuevoRol = rolesService.CrearRoles(rolesModel);
         return new ResponseEntity<>(nuevoRol, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<RolesModel> editarRol(@RequestBody RolesModel rolesModel, @PathVariable("id") Long id) {
-        RolesModel rolEditado = rolesService.EditarRoles(rolesModel, id);
+    public ResponseEntity<RolesModel2> editarRol(@RequestBody RolesModel2 rolesModel, @PathVariable("id") Long id) {
+        RolesModel2 rolEditado = rolesService.EditarRoles(rolesModel, id);
         if (rolEditado != null) {
             return new ResponseEntity<>(rolEditado, HttpStatus.OK);
         }
@@ -54,7 +53,7 @@ public class RolesController {
     }
 
     @GetMapping("/rolH/{est}")
-    public List<RolesModel> ListRH(@PathVariable("est") Boolean est){
+    public List<RolesModel2> ListRH(@PathVariable("est") Boolean est){
         return rolesService.ListarRolesH(est);
     }
 }
