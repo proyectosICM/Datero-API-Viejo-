@@ -2,12 +2,9 @@ package com.b.dateroapi.Services;
 
 import com.b.dateroapi.Models.DistritosModel;
 import com.b.dateroapi.Models.ParaderosModel;
-import com.b.dateroapi.Models.RolesModel;
 import com.b.dateroapi.Repositories.ParaderosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

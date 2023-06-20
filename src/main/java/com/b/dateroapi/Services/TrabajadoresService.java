@@ -1,7 +1,7 @@
 package com.b.dateroapi.Services;
 
 import com.b.dateroapi.Models.EmpresasModel;
-import com.b.dateroapi.Models.RolesModel;
+import com.b.dateroapi.Models.RolesModel2;
 import com.b.dateroapi.Models.TrabajadoresModel;
 import com.b.dateroapi.Repositories.TrabajadoresRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,9 +36,9 @@ public class TrabajadoresService {
             trabajador.setApe_tra(trabajadoresModel.getApe_tra());
             trabajador.setDni_tra(trabajadoresModel.getDni_tra());
             trabajador.setEst_tra(trabajadoresModel.getEst_tra());
-            trabajador.setUser_tra(trabajadoresModel.getUser_tra());
+            //trabajador.setUser_tra(trabajadoresModel.getUser_tra());
             trabajador.setPass_tra(trabajadoresModel.getPass_tra());
-            trabajador.setRolesModel(trabajadoresModel.getRolesModel());
+            //trabajador.setRolesModel(trabajadoresModel.getRolesModel());
             return trabajadoresRepository.save(trabajador);
         }
         return null;
@@ -62,12 +62,12 @@ public class TrabajadoresService {
             empresasxe.setId_emp((Long) resultado[4]);
             empresasxe.setNom_emp((String) resultado[5]);
             trabajadoresxe.setEmpresasModel(empresasxe);
-            trabajadoresxe.setUser_tra((String) resultado[6]);
+            //trabajadoresxe.setUser_tra((String) resultado[6]);
             trabajadoresxe.setPass_tra((String) resultado[7]);
-            RolesModel rolesxe  = new RolesModel();
+            RolesModel2 rolesxe  = new RolesModel2();
             rolesxe.setId_rol((Long) resultado[8]);
             rolesxe.setNom_rol((String) resultado[9]);
-            trabajadoresxe.setRolesModel(rolesxe);
+            //trabajadoresxe.setRolesModel(rolesxe);
             trabajadoresxe.setEst_tra((Boolean) resultado[10]);
             trabajadorList.add(trabajadoresxe);
         }
@@ -88,12 +88,12 @@ public class TrabajadoresService {
             empresasxe.setId_emp((Long) resultado[4]);
             empresasxe.setNom_emp((String) resultado[5]);
             trabajadoresxe.setEmpresasModel(empresasxe);
-            trabajadoresxe.setUser_tra((String) resultado[6]);
+            //trabajadoresxe.setUser_tra((String) resultado[6]);
             trabajadoresxe.setPass_tra((String) resultado[7]);
-            RolesModel rolesxe  = new RolesModel();
+            RolesModel2 rolesxe  = new RolesModel2();
             rolesxe.setId_rol((Long) resultado[8]);
             rolesxe.setNom_rol((String) resultado[9]);
-            trabajadoresxe.setRolesModel(rolesxe);
+            //trabajadoresxe.setRolesModel(rolesxe);
             trabajadoresxe.setEst_tra((Boolean) resultado[10]);
             trabajadorList.add(trabajadoresxe);
         }
@@ -114,12 +114,12 @@ public class TrabajadoresService {
             empresasxe.setId_emp((Long) resultado[4]);
             empresasxe.setNom_emp((String) resultado[5]);
             trabajadoresxe.setEmpresasModel(empresasxe);
-            trabajadoresxe.setUser_tra((String) resultado[6]);
+            //trabajadoresxe.setUser_tra((String) resultado[6]);
             trabajadoresxe.setPass_tra((String) resultado[7]);
-            RolesModel rolesxe  = new RolesModel();
+            RolesModel2 rolesxe  = new RolesModel2();
             rolesxe.setId_rol((Long) resultado[8]);
             rolesxe.setNom_rol((String) resultado[9]);
-            trabajadoresxe.setRolesModel(rolesxe);
+            //trabajadoresxe.setRolesModel(rolesxe);
             trabajadoresxe.setEst_tra((Boolean) resultado[10]);
             trabajadorList.add(trabajadoresxe);
         }
