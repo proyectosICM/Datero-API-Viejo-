@@ -11,6 +11,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,6 +24,9 @@ import java.util.stream.Collectors;
 public class TrabajadoresController {
     @Autowired
     TrabajadoresService trabajadoresService;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     @Autowired
     TrabajadoresRepository trabajadoresRepository;
@@ -73,7 +77,7 @@ public class TrabajadoresController {
 
         TrabajadoresModel trabajadoresModel = TrabajadoresModel.builder()
                 .username(createUserDTO.getUsername())
-                .pass_tra(createUserDTO.getPass_tra())
+                .pass_tra(passwordEncoder.encode(createUserDTO.getPass_tra()))
                 .nom_tra(createUserDTO.getNom_tra())
                 .ape_tra(createUserDTO.getApe_tra())
                 .dni_tra(createUserDTO.getDni_tra())

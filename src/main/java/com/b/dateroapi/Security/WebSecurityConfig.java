@@ -9,50 +9,48 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class WebSecurityConfig {
-     @Bean
-        PasswordEncoder passwordEncoder(){
-            return new BCryptPasswordEncoder();
+        @Bean
+        SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+            return http.cors()
+                    .and()
+                    .csrf(config -> config.disable())
+                    .authorizeHttpRequests(auth -> {
+                        auth.requestMatchers("api/buses/1").permitAll();
+                        auth.anyRequest().authenticated();
+                    })
+                    .sessionManagement(session -> {
+                        session.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                    })
+                    .httpBasic()
+                    .and()
+                    .build();
         }
 
         @Bean
         UserDetailsService userDetailsService(){
             InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-            manager.createUser(User.withUsername("Edas")
+            manager.createUser(User.withUsername("Eduardo")
                     .password(passwordEncoder().encode("1234"))
                     .roles()
                     .build());
             return manager;
         }
-
         @Bean
-        AuthenticationManager authManager(HttpSecurity http) throws Exception{
-            return http.getSharedObject(AuthenticationManagerBuilder.class)
+        PasswordEncoder passwordEncoder(){
+            return new BCryptPasswordEncoder();
+        }
+        @Bean
+        AuthenticationManager authenticationManager(HttpSecurity httpSecurity, PasswordEncoder passwordEncoder) throws  Exception{
+            return httpSecurity.getSharedObject(AuthenticationManagerBuilder.class)
                     .userDetailsService(userDetailsService())
                     .passwordEncoder(passwordEncoder())
-                    .and()
-                    .build();
-        }
-
-        @Bean
-        SecurityFilterChain securityFilterChain(AuthenticationManager authManager, HttpSecurity http) throws Exception{
-            return http.cors()
-                    .and()
-                    .csrf().disable()
-                    .authorizeHttpRequests()
-                    .anyRequest()
-                    .authenticated()
-                    .and()
-                    .httpBasic()
-                    .and()
-                    .sessionManagement()
-                    .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                    .and()
-                    .build();
+                    .and().build();
         }
 }
