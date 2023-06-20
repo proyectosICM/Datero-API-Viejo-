@@ -63,9 +63,9 @@ public class BusesController {
         return busesService.ListarBusesxET(emp);
     }
 
-    @GetMapping("/busxempH/{emp}")
-    public List<BusesModel> BusesxEmpH(@PathVariable("emp") Long emp){
-        return busesService.ListarBusesxEH(emp);
+    @GetMapping("/busxempH/{est}/{emp}")
+    public List<BusesModel> BusesxEmpH(@PathVariable("est") Boolean est,@PathVariable("emp") Long emp){
+        return busesService.ListarBusesxEH(est, emp);
     }
 
     @GetMapping("/busxempD/{emp}")

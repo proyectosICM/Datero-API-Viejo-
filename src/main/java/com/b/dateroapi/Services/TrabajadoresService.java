@@ -74,8 +74,8 @@ public class TrabajadoresService {
         return trabajadorList;
     }
 
-    public List<TrabajadoresModel> ListarTrabjadorxEmpH(Long emp, Boolean est){
-        List<Object[]> resultados = trabajadoresRepository.ListTrabjadorxEmpH(emp, est);
+    public List<TrabajadoresModel> ListarTrabjadorxEmpH( Boolean est, Long emp){
+        List<Object[]> resultados = trabajadoresRepository.ListTrabjadorxEmpH(est, emp);
         List<TrabajadoresModel> trabajadorList = new ArrayList<>();
 
         for (Object[] resultado : resultados){

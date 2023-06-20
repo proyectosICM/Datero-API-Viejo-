@@ -28,14 +28,9 @@ public class EmpresasControllers {
     @GetMapping("/deshabilitadas")
     public List<EmpresasModel> getListsD(){return empresasService.ListarEmpDeshab();}
 
-    @GetMapping("/d/{est}")
-    public List<EmpresasModel> getDetallesValores(@PathVariable("est") boolean est){
-        return empresasService.ListarEmpEst(est);
-    }
-
-    @GetMapping("/v/{est}")
-    public List<Object[]> getDetallesValores2(@PathVariable("est") boolean est){
-        return empresasService.getDetallesValores(est);
+    @GetMapping("/empresasH/{est}")
+    public List<EmpresasModel> ListarEmpresasH(@PathVariable("est") boolean est){
+        return empresasService.ListarEmpresasH(est);
     }
 
     @GetMapping("/{id}")

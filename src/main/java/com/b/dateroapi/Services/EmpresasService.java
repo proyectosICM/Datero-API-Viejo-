@@ -52,8 +52,8 @@ public class EmpresasService {
     }
 
 
-    public List<EmpresasModel> ListarEmpEst(boolean est){
-        List<Object[]> resultados = empresasRepository.getEmpest(est);
+    public List<EmpresasModel> ListarEmpresasH(boolean est){
+        List<Object[]> resultados = empresasRepository.ListarEmpresasH(est);
         List<EmpresasModel> empresasDList = new ArrayList<>();
 
         for (Object[] resultado : resultados){
@@ -64,10 +64,6 @@ public class EmpresasService {
             empresasDList.add(empresasmd);
         }
         return empresasDList;
-    }
-
-    public List<Object[]> getDetallesValores(boolean est) {
-        return empresasRepository.getEmpest(est);
     }
 
     public EmpresasModel CrearEmpresa(EmpresasModel empresasModel){

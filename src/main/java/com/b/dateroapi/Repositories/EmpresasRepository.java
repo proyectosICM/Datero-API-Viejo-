@@ -10,8 +10,8 @@ import java.util.List;
 
 @Repository
 public interface EmpresasRepository extends JpaRepository<EmpresasModel, Long> {
-    @Query(value = "CALL EMPEST(:est)", nativeQuery = true)
-    List<Object[]> getEmpest(@Param("est") boolean est);
+    @Query(value = "CALL EMPRESASH(:est)", nativeQuery = true)
+    List<Object[]> ListarEmpresasH(@Param("est") boolean est);
 
     @Query(value = "SELECT * FROM EMPRESAS_HABILITADAS", nativeQuery = true)
     List<Object[]> EmpHabilitadas();

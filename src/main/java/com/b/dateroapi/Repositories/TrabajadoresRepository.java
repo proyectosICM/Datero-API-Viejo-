@@ -13,8 +13,8 @@ public interface TrabajadoresRepository extends JpaRepository<TrabajadoresModel,
     @Query(value = "CALL TRABAJADORXEMPT(:emp)", nativeQuery = true)
     List<Object[]>ListTrabjadorxEmpT(@Param("emp") Long emp);
 
-    @Query(value = "CALL TRABAJADORXEMPH(:emp,:est)", nativeQuery = true)
-    List<Object[]>ListTrabjadorxEmpH(@Param("emp") Long emp, @Param("est") Boolean est);
+    @Query(value = "CALL TRABAJADORXEMPH(:est, :emp)", nativeQuery = true)
+    List<Object[]>ListTrabjadorxEmpH(@Param("est") Boolean est, @Param("emp") Long emp );
 
     @Query(value = "CALL TRABAJADORXEMPR(:emp, :est, :rol)", nativeQuery = true)
     List<Object[]>ListTrabjadorxEmpR(@Param("emp") Long emp, @Param("est") Boolean est, @Param("rol") Integer rol);

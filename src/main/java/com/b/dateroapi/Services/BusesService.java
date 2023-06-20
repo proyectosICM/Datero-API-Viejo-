@@ -103,8 +103,8 @@ public class BusesService {
         return busesList;
     }
 
-    public List<BusesModel>ListarBusesxEH(Long emp){
-        List<Object[]> resultados = busesRepository.ListBusesxEmpH(emp);
+    public List<BusesModel>ListarBusesxEH(Boolean est,Long emp){
+        List<Object[]> resultados = busesRepository.ListBusesxEmpH(est,emp);
         List<BusesModel> busesList = new ArrayList<>();
 
         for (Object[] resultado : resultados){
