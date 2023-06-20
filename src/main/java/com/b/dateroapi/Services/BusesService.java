@@ -35,12 +35,21 @@ public class BusesService {
             BusesModel bus = existing.get();
             bus.setMod_bus(busesModel.getMod_bus());
             bus.setPlaca_bus(busesModel.getPlaca_bus());
-            bus.setLongitud(busesModel.getLongitud());
-            bus.setLatitud(busesModel.getLatitud());
             bus.setEst_bus(busesModel.getEst_bus());
             bus.setTrabajadoresModel(busesModel.getTrabajadoresModel());
             bus.setEmpresasModel(busesModel.getEmpresasModel());
             bus.setRutasModel(busesModel.getRutasModel());
+            return busesRepository.save(bus);
+        }
+        return null;
+    }
+
+    public BusesModel EditarPosicionamiento(BusesModel busesModel, Long id){
+        Optional<BusesModel> existing = busesRepository.findById(id);
+        if (existing.isPresent()){
+            BusesModel bus = existing.get();
+            bus.setLongitud(busesModel.getLongitud());
+            bus.setLatitud(busesModel.getLatitud());
             return busesRepository.save(bus);
         }
         return null;

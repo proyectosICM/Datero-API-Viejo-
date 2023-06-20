@@ -47,6 +47,15 @@ public class BusesController {
         return null;
     }
 
+    @PutMapping("pos/{id}")
+    public ResponseEntity<BusesModel> EditarPos(@RequestBody BusesModel busesModel, @PathVariable Long id){
+        BusesModel ebus = busesService.EditarPosicionamiento(busesModel, id);
+        if (ebus!=null){
+            return new ResponseEntity<>(ebus, HttpStatus.OK);
+        }
+        return null;
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<BusesModel> EliminarB(@PathVariable Long id){
         busesService.EliminarBus(id);
