@@ -3,7 +3,7 @@ package com.b.dateroapi.Models;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "RTiempo")
+@Table(name = "RTIEMPO")
 public class RTiempoModel {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
