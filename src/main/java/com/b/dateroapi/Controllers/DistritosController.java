@@ -30,6 +30,10 @@ public class DistritosController {
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+    @GetMapping("/disH/{est}")
+    public List<DistritosModel> DisH(@PathVariable("est") Boolean est){
+        return distritosService.ListarDisH(est);
+    }
 
     @PostMapping
     public ResponseEntity<DistritosModel> CrearD(@RequestBody DistritosModel distritosModel){
@@ -52,8 +56,5 @@ public class DistritosController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @GetMapping("/disH/{est}")
-    public List<DistritosModel> DisH(@PathVariable("est") Boolean est){
-        return distritosService.ListarDisH(est);
-    }
+
 }

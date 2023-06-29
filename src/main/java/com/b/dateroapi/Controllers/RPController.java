@@ -30,6 +30,11 @@ public class RPController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    @GetMapping("rxp/{ruta}")
+    public List<RPModel> ListarPxR(@PathVariable("ruta") Long ruta){
+        return rpService.ListarParaderosXRuta(ruta);
+    }
+
     @PostMapping
     public ResponseEntity<RPModel> CrearRP(@RequestBody RPModel rpModel){
         RPModel crp = rpService.CrearRP(rpModel);
@@ -51,8 +56,5 @@ public class RPController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @GetMapping("rxp/{ruta}")
-    public List<RPModel> ListarPxR(@PathVariable("ruta") Long ruta){
-        return rpService.ListarParaderosXRuta(ruta);
-    }
+
 }
